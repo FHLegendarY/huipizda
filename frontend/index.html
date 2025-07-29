@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ТехноСтрой - Аренда спецтехники</title>
+    <title>Аренда спецтехники</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,7 +15,6 @@
                 <ul>
                     <li><a href="#about">О компании</a></li>
                     <li><a href="#services">Услуги</a></li>
-                    <li><a href="#equipment">Техника</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
@@ -157,7 +156,7 @@
         
         /* Герой-секция */
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/header2.jpg');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -225,8 +224,9 @@
         }
         
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
             gap: 30px;
         }
         
@@ -236,6 +236,9 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
         }
         
         .service-card:hover {
@@ -331,6 +334,18 @@
         }
         
         /* Адаптивность */
+        @media (max-width: 1024px) {
+            .services-grid {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .service-card {
+                flex: 0 0 calc(50% - 30px);
+                max-width: calc(50% - 30px);
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -339,6 +354,12 @@
             
             nav ul {
                 margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
             }
             
             .hero h1 {
@@ -361,6 +382,11 @@
                 font-size: 2rem;
             }
             
+            .service-card {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
             .footer-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -378,7 +404,7 @@
     <section class="hero">
         <div class="container hero-content">
             <h1>Аренда спецтехники для любых задач</h1>
-            <p>Профессиональная техника с опытными операторами для строительства, грузоперевозок и земляных работ</p>
+            <p>Профессиональная техника с опытными операторами</p>
         </div>
     </section>
     
@@ -389,7 +415,7 @@
         <a href="tel:+79223638200" class="phone-number">
             <i class="fas fa-phone"></i> +7 (922) 363-82-00
         </a>
-        <a href="tel:+79027963497" class="phone-number">  <!-- Добавленный номер -->
+        <a href="tel:+79027963497" class="phone-number">
             <i class="fas fa-phone"></i> +7 (902) 796-34-97
         </a>
         <p>Круглосуточная консультация и заказ техники</p>
@@ -406,93 +432,59 @@
                     <p>Наши клиенты - это строительные компании, промышленные предприятия, коммунальные службы и частные лица, которые ценят надежность, профессионализм и индивидуальный подход.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Спецтехника">
+                    <img src="images/logo.jpg" alt="Спецтехника">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Услуги -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/izbcbgj9gxpx2myoo3kdajyb0voew9fk.png" alt="Строительные работы">
-                    </div>
-                    <div class="service-info">
-                        <h3>Строительные работы</h3>
-                        <p>Полный комплекс строительных работ с использованием современной спецтехники: экскаваторы, бульдозеры, погрузчики.</p>
-                    </div>
+<!-- Услуги -->
+<section id="services" class="services">
+    <div class="container">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/evacuator.jpg" alt="Эвакуатор">
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Грузоперевозки">
-                    </div>
-                    <div class="service-info">
-                        <h3>Грузоперевозки</h3>
-                        <p>Перевозка грузов любой сложности с использованием самосвалов, кранов-манипуляторов, низкорамных тралов.</p>
-                    </div>
+                <div class="service-info">
+                    <h3>Эвакуатор</h3>
+                    <p>Эвакуация легковых и грузовых машин</p>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Земляные работы">
-                    </div>
-                    <div class="service-info">
-                        <h3>Земляные работы</h3>
-                        <p>Выполнение земляных работ любой сложности: рытье котлованов, планировка территорий, вывоз грунта.</p>
-                    </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/avtokran.jpg" alt="Автокран">
+                </div>
+                <div class="service-info">
+                    <h3>Автокран</h3>
+                    <p>Погрузочные работы и перемещение грузов на высоту</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/kranbort.jpg" alt="Кранборт">
+                </div>
+                <div class="service-info">
+                    <h3>Кранборт</h3>
+                    <p>Погрузки, перевозка и разгрузка различных грузов</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/excavator.png" alt="Экскаватор-погрузчик">
+                </div>
+                <div class="service-info">
+                    <h3>Экскаватор-погрузчик</h3>
+                    <p>Земляные работы, погрузка и транспортировка материалов</p>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Техника -->
-    <section id="equipment" class="equipment">
-        <div class="container">
-            <h2 class="section-title">Наша техника</h2>
-            <div class="equipment-list">
-                <div class="equipment-item">
-                    <img src="https://ru.freepik.com/icon/tow-truck_16976719#fromView=keyword&page=1&position=54&uuid=48e4bd49-f4b4-4f88-aa08-70779ee3d0c8" alt="Экскаватор">
-                    <h3>Экскаваторы</h3>
-                    <p>Гусеничные и колесные от 1.5 до 35 тонн</p>
-                </div>
-                
-                <div class="equipment-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933240.png" alt="Бульдозер">
-                    <h3>Бульдозеры</h3>
-                    <p>Мощные машины для планировки и перемещения грунта</p>
-                </div>
-                
-                <div class="equipment-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933239.png" alt="Самосвал">
-                    <h3>Самосвалы</h3>
-                    <p>Грузоподъемность от 10 до 40 тонн</p>
-                </div>
-                
-                <div class="equipment-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933241.png" alt="Кран">
-                    <h3>Автокраны</h3>
-                    <p>Грузоподъемность от 16 до 100 тонн</p>
-                </div>
-                
-                <div class="equipment-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933244.png" alt="Погрузчик">
-                    <h3>Фронтальные погрузчики</h3>
-                    <p>Для погрузки и перемещения сыпучих материалов</p>
-                </div>
-                
-                <div class="equipment-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933242.png" alt="Манипулятор">
-                    <h3>Краны-манипуляторы</h3>
-                    <p>Для погрузочно-разгрузочных работ и перевозки грузов</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
     
     <!-- Контакты -->
     <section id="contact" class="contact">
