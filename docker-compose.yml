@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend-builder
+  nginx:
+    build: ./nginx
+    depends_on:
+      - frontend
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    ports:
+      - "80:80"
+    container_name: nginx-server

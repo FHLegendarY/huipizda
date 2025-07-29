@@ -1,0 +1,15 @@
+# Игнорировать системные файлы
+.DS_Store
+Thumbs.db
+
+# Игнорировать файлы Docker
+docker-compose.override.yml
+
+# Игнорировать временные файлы редакторов
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Игнорировать кэш Docker
+**/cache/
